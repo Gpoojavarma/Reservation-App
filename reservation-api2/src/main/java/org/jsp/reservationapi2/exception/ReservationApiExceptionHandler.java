@@ -19,11 +19,11 @@ public class ReservationApiExceptionHandler extends ResponseEntityExceptionHandl
 		return ResponseEntity.status(HttpStatus.OK).body(structure);
 	}
 	
-	@ExceptionHandler(AdminNotFoundException.class)
-	public ResponseEntity<ResponseStructure<String>> handle(AdminNotFoundException exception){
+	@ExceptionHandler(UserNotFoundException.class)
+	public ResponseEntity<ResponseStructure<String>> handle(UserNotFoundException exception){
 		
 		ResponseStructure<String> structure = new ResponseStructure<>();
-		structure.setData("Admin Not Found");
+		structure.setData("User Not Found");
 		structure.setMessage(exception.getMessage());
 		structure.setStatusCode(HttpStatus.NOT_FOUND.value());
 		return ResponseEntity.status(HttpStatus.OK).body(structure);
